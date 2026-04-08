@@ -4,7 +4,8 @@ public class MahasiswaDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int jmlMhs;
+        int jmlMhs, pss;
+        double cari, posisi;
 
         System.out.print("Masukkan jumlah mahasiswa : ");
         jmlMhs = sc.nextInt();
@@ -21,28 +22,26 @@ public class MahasiswaDemo {
             mhs.nama = sc.nextLine();
             System.out.print("Masukkan Kelas : ");
             mhs.kelas = sc.nextLine();
-
             System.out.print("Masukkan IPK : ");
             mhs.ipk = sc.nextDouble();
-
+            sc.nextLine(); // buffering
             list.tambah(mhs);
         }
 
-        System.out.println("Data Mahasiswa Sebelum disorting");
         list.tampil();
+        // Melakukan searching menggunakan sequential searching
+        System.out.println("----------------------");
+        System.out.println("Pencarian data");
+        System.out.println("----------------------");
+        System.out.println("Masukkan IPK Mahasiswa yang dicari : ");
+        System.out.print("Masukkan IPK: ");
+        cari = sc.nextDouble();
 
-        System.out.println("Data Mahasiswa setelah sorting berdasarkan IPK (Bubble Sort)");
-        list.bubbleSort();
-        list.tampil();
-
-        System.out.println("Data Mahasiswa setelah sorting berdasarkan IPK (Selection Sort)");
-        list.SelectionSort();
-        list.tampil();
-
-        System.out.println("Data Mahasiswa setelah sorting berdasarkan IPK (Insertion Sort)");
-        list.InsertionSort();
-        list.tampil();
-
+        System.out.println("Menggunakan Sequential Searching");
+        posisi = list.sequentialSearching(cari);
+        pss = (int) posisi; // karena posisi adalah double, maka harus dikonversi ke int
+        list.tampilPosisi(cari, pss);
+        list.tampilDataSearch(cari, pss);
         sc.close();
     }
 }
