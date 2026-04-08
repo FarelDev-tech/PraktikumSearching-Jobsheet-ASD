@@ -4,8 +4,8 @@ public class MahasiswaDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int jmlMhs, pss;
-        double cari, posisi;
+        int jmlMhs, pss, pss2;
+        double cari, posisi, posisi2;
 
         System.out.print("Masukkan jumlah mahasiswa : ");
         jmlMhs = sc.nextInt();
@@ -42,6 +42,20 @@ public class MahasiswaDemo {
         pss = (int) posisi; // karena posisi adalah double, maka harus dikonversi ke int
         list.tampilPosisi(cari, pss);
         list.tampilDataSearch(cari, pss);
+
+        // Melakukan searching menggunakan binary searching
+        System.out.println("----------------------");
+        System.out.println("Pencarian data");
+        System.out.println("----------------------");
+        System.out.println("Masukkan IPK Mahasiswa yang dicari : ");
+        System.out.print("Masukkan IPK: ");
+        cari = sc.nextDouble();
+
+        System.out.println("Menggunakan Binary Searching");
+        posisi2 = list.findBinarySearch(cari, 0, jmlMhs-1);
+        pss2 = (int) posisi2; // karena posisi adalah double, maka harus dikonversi ke int
+        list.tampilPosisi(cari, pss2);
+        list.tampilDataSearch(cari, pss2);
         sc.close();
     }
 }
