@@ -82,9 +82,11 @@ public class MahasiswaBerprestasi {
             if (cari == listMhs[mid].ipk) {
                 return(mid);
             } else if (cari < listMhs[mid].ipk) {
-                return(findBinarySearch(cari, left, mid-1));
-            } else {
+                // MENJAWAB PRAKTIKUM: Karena descending, nilai yang lebih kecil ada di sebelah bagian kanan mid maka:
                 return(findBinarySearch(cari, mid+1, right));
+            } else {
+                // MENJAWAB PRAKTIKUM: Karena descending, nilai yang lebih besar ada di sebelah bagian kiri mid maka:
+                return(findBinarySearch(cari, left, mid-1));
             }
         }
 
